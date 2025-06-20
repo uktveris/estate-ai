@@ -1,0 +1,13 @@
+node_modules/
+
+# just in case for build output
+dist/
+build/
+
+# just in case for logs
+.log
+
+# envs
+
+.env
+.env.*

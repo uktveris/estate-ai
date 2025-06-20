@@ -1,0 +1,27 @@
+{
+  "name": "estate-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Monorepo for real estate service with AI chat functionality.",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com-personal:uktveris/estate-ai.git"
+  },
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "lint": "npm run lint --workspaces",
+    "dev": "npm run dev --workspace=backend --workspace=frontend"
+  },
+  "dependencies": {
+    "@types/node": "^24.0.3",
+    "typescript": "^5.8.3"
+  }
+}

@@ -1,8 +1,8 @@
-# Estate - AI Frontend
+# Estate - AI Backend
 
-This is a [Next.js](https://nextjs.org) project.
+This is a Node.js project powered by [Fastify](https://fastify.dev/).
 
-## Installation / running
+## Inatallation / running
 
 Run the development server:
 
@@ -22,4 +22,4 @@ Run production (must build first):
 npm run start
 ```
 
-Default port is *3000*.
+The fallback port is *8080*.

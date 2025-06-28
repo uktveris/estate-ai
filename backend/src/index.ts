@@ -13,8 +13,6 @@ fastify.get("/", async (request, reply) => {
 
 const port = Number(process.env.PORT) || 8080;
 
-console.log("port from .env is: " + port);
-
 const start = async () => {
   await fastify.listen({ port: port });
 }

@@ -33,11 +33,17 @@ export default function LoginForm() {
       </div>
       <h1 className="text-4xl font-bold">Login</h1>
       <Form className="flex flex-col" action={() => handleLogin()}>
+        {error && <p className="text-red-800">{error}</p>}
         <label className="text-sm mt-4" htmlFor="email">Email</label>
         <input className="text-lg" id="email" name="email" type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="some@example.com" required />
         <label className="text-sm mt-4" htmlFor="password">Password</label>
         <input className="text-lg" id="password" name="password" type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="..." required />
-        <button className="mt-4 py-4 bg-[var(--primary-color)] text-white font-bold rounded-3xl cursor-pointer" type="submit" disabled={loading}>{loading ? "Logging in..." : "Log in"}</button>
+        <button
+          className="mt-4 py-4 bg-[var(--primary-color)] text-white font-bold rounded-3xl cursor-pointer"
+          type="submit"
+          disabled={loading}>
+            {loading ? "Logging in..." : "Log in"}
+          </button>
       </Form>
     </div>
   )

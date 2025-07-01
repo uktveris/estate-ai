@@ -11,9 +11,9 @@ export default function Header() {
       </div>
       </Link>
       <ul className="flex">
-        <li className="ml-7 font-bold"><NavLink title="Home" href="/" className="[&.active]:text-[var(--primary-color)]" /></li>
-        <li className="ml-7 font-bold"><NavLink title="Listings" href="/listings" className="[&.active]:text-[var(--primary-color)]" /></li>
-        <li className="ml-7 font-bold"><NavLink title="Search" href="/search" className="[&.active]:text-[var(--primary-color)]" /></li>
+        <li className="ml-7 font-bold"><NavLink title="Home" href="/" className="[&.active]:text-white [&.active]:bg-[var(--primary-color)] [&.active]:rounded-2xl [&.active]:p-2" /></li>
+        <li className="ml-7 font-bold"><NavLink title="Listings" href="/listings" className="[&.active]:text-white [&.active]:bg-[var(--primary-color)] [&.active]:rounded-2xl [&.active]:p-2" /></li>
+        <li className="ml-7 font-bold"><NavLink title="Search" href="/search" className="[&.active]:text-white [&.active]:bg-[var(--primary-color)] [&.active]:rounded-2xl [&.active]:p-2" /></li>
       </ul>
     </header>
   )

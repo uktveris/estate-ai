@@ -12,7 +12,7 @@ export async function updateSession(request: NextRequest) {
           return request.cookies.getAll();
         },
         setAll(newCookies) {
-          newCookies.forEach(({ name, value, options }) => {
+          newCookies.forEach(({ name, value}) => {
             request.cookies.set(name, value);
           });
           supabaseRes = NextResponse.next({ request });

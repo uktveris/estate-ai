@@ -14,8 +14,6 @@ jobs:
       SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
       SUPABASE_DB_PASSWORD: ${{ secrets.STAGING_DB_PASSWORD }}
       SUPABASE_PROJECT_ID: ${{ secrets.STAGING_PROJECT_ID }}
-      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.STAGING_NEXT_PUBLIC_SUPABASE_URL }}
-      NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{secrets.STAGING_NEXT_PUBLIC_SUPABASE_ANON_KEY }}
 
     steps:
       - uses: actions/checkout@v4
@@ -29,12 +27,18 @@ jobs:
 
       - name: build frontend
         working-directory: frontend
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.STAGING_NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{secrets.STAGING_NEXT_PUBLIC_SUPABASE_ANON_KEY }}
         run: |
           npm ci
           npm run build
 
       - name: build backend
         working-directory: backend
+        env:
+          SUPABASE_URL: ${{ secrets.STAGING_NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{secrets.STAGING_NEXT_PUBLIC_SUPABASE_ANON_KEY }}
         run: |
           npm ci
           npm run build

@@ -1,13 +1,13 @@
 "use client";
 import { createClient } from "@/utils/supabase/client";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import Icon from "./ui/Icon";
-import Form from "next/form";
+import Link from "next/link";
 
-const supabase = createClient();
 
 export default function SignUpForm() {
+  const supabase = createClient();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repPassword, setRepPassword] = useState("");
@@ -38,7 +38,12 @@ export default function SignUpForm() {
           <Icon />
       </div>
       <h1 className="text-4xl font-bold">Sign up</h1>
-      <Form className="flex flex-col" action={() => handleSignUp()}>
+      <form
+        className="flex flex-col"
+        onSubmit={(e) => { e.preventDefault();  handleSignUp()}}
+        onChange={() => setError(null)}
+        onInvalid={(e) => { e.preventDefault();  setError("Enter valid email address")}}
+      >
         {error && <p className="text-red-800">{error}</p>}
         <label className="text-sm mt-4" htmlFor="email">Email</label>
         <input className="text-lg" id="email" name="email" type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="some@example.com" required />
@@ -52,7 +57,8 @@ export default function SignUpForm() {
           disabled={loading}>
             {loading ? "Signing up..." : "Sign up"}
           </button>
-      </Form>
+      </form>
+      <Link className="text-xs underline" href="/login">Log in</Link>
     </div>
   )
 }

@@ -4,6 +4,7 @@ import Icon from "./ui/Icon";
 import Form from "next/form";
 import { createClient } from "@/utils/supabase/client";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const supabase = createClient();
 
@@ -45,6 +46,7 @@ export default function LoginForm() {
             {loading ? "Logging in..." : "Log in"}
           </button>
       </Form>
+      <Link className="text-xs underline" href="/signup">Create account</Link>
     </div>
   )
 }

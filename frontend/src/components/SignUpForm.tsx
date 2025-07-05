@@ -1,7 +1,7 @@
 "use client";
 import { createClient } from "@/utils/supabase/client";
 import { useRouter } from "next/navigation";
-import { FormEvent, useState } from "react";
+import {useState } from "react";
 import Icon from "./ui/Icon";
 import Link from "next/link";
 

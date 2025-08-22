@@ -1,3 +1,4 @@
+import LogoutButton from "@/components/ui/LogoutButton";
 import { createClient } from "@/utils/supabase/server"
 import { redirect } from "next/navigation";
 
@@ -14,6 +15,7 @@ export default async function AccountPage() {
       <h1>user data:</h1>
       <p>{user.email}</p>
       <p>{user.created_at}</p>
+      <LogoutButton />
     </div>
   )
 }
